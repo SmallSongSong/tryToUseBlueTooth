@@ -25,9 +25,12 @@ class BlueToothDiveListTableView: UITableView, UITableViewDelegate, UITableViewD
         self.delegate = self
         self.dataSource = self
         self.register(UITableViewCell.self, forCellReuseIdentifier: "peripheralCell")
+        
+        //后面尝试找出一个替代通知的方法
         let name = NSNotification.Name(rawValue: "beginReload")
         NotificationCenter.default.addObserver(self, selector: #selector(buttonDownToReload), name: name, object: nil)
-        print("init OK")
+        let timeLimitName = Notification.Name(rawValue: "timeLimit")
+        NotificationCenter.default.addObserver(self, selector: #selector(stopTime), name: timeLimitName, object: nil)
     }
     
     override func reloadData(){
@@ -63,8 +66,13 @@ class BlueToothDiveListTableView: UITableView, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myDelegate?.connectBlueToothDevice(peripheral: peripheralLists[indexPath.row])
         print("点击后开始匹配，停止刷新tableView")
+        self.stopTime()
+    }
+    
+    @objc func stopTime(){
         timer.invalidate()
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

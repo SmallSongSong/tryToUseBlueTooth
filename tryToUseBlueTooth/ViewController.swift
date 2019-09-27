@@ -6,6 +6,8 @@
 //  Copyright © 2019 李松青(SongqingLi)-顺丰科技. All rights reserved.
 //
 
+//目前是要给搜索蓝牙设备一个搜索的时间限制，然后到时间，停止搜索，同时停止tableView的刷新
+
 import UIKit
 import CoreBluetooth
 
@@ -14,6 +16,9 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
     var centralManager: CBCentralManager?
     var peripheralData = [CBPeripheral]()
     var connectedPeripheral: CBPeripheral?
+    
+    var freshLimitTimer: Timer!//按下搜索时开始计时，给予20S搜索时间，超过就不搜索了
+    var TIME_LIMIT_SECOND = 20 //这里全局数值的设计是一个优化的点
     
     var activityCirleLogo: UIActivityIndicatorView!
     var searchButton :UIButton!
@@ -40,21 +45,19 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
         activityCirleLogo.frame.origin.y = 5
         activityCirleLogo.center=topContentView.center
         activityCirleLogo.alpha=0.0
-        //activityCirleLogo.translatesAutoresizingMaskIntoConstraints = false
+
         topContentView.addSubview(activityCirleLogo)
         
         
         
         searchButton=UIButton()
         searchButton.bounds.size=CGSize(width: 120, height: 55)
-        //searchButton.frame=CGRect(x: SCREEN_HEIGHT/2,y: 5,width: 120,height: 55)
         searchButton.frame.origin.y = 5
         searchButton.setTitle("搜索", for: .normal)
         searchButton.setTitleColor(.black, for: .normal)
         searchButton.center=topContentView.center
         searchButton.alpha=1.0
         searchButton.addTarget(self, action: #selector(startSearch), for: .touchUpInside)
-        //searchButton.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(searchButton)
         
         
@@ -65,9 +68,6 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
         let tableRect=CGRect(x: 0, y: 225, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-225)
         let TableVC=BlueToothDiveListTableView(frame: tableRect, style: .plain)
         TableVC.myDelegate=self
-        
-        //activityCirleLogo.superview?.addConstraint(MarginTop)
-        //searchButton.superview?.addConstraint(MarginTop)
         
         self.view.addSubview(topContentView)
         self.view.addSubview(TableVC)
@@ -228,6 +228,7 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
                 self.activityCirleLogo.startAnimating()
                 //发广播，tableView开始刷新
                 let name = NSNotification.Name(rawValue: "beginReload")
+                //开始计时
                 NotificationCenter.default.post(name: name,object: nil)
                 print("发出通知")
             }
@@ -238,6 +239,20 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
         default:
             self.alert("你碰上了苹果都没遇到的问题，手机可以扔了")
             break
+        }
+    }
+    func startTimeCount(){
+        freshLimitTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeCount), userInfo: nil, repeats: true)
+        freshLimitTimer.fire()
+    }
+    @objc func timeCount(){
+        if(TIME_LIMIT_SECOND>0){
+            TIME_LIMIT_SECOND-=1
+        }else{
+            freshLimitTimer.invalidate()
+            let name = NSNotification.Name(rawValue: "timeLimit")
+            NotificationCenter.default.post(name: name, object: nil) // 这里objec的对象也是一个优化的点
+            TIME_LIMIT_SECOND=20
         }
     }
     
