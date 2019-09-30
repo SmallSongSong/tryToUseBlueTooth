@@ -9,7 +9,7 @@
 import UIKit
 import CoreBluetooth
 
-class BlueToothDiveListTableView: UITableView, UITableViewDelegate, UITableViewDataSource{
+class BlueToothDivceListTableView: UITableView, UITableViewDelegate, UITableViewDataSource{
     
     var myDelegate: PeripheralTableViewDelegate?
     var peripheralLists = [CBPeripheral]()

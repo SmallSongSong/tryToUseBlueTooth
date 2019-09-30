@@ -66,7 +66,7 @@ class ViewController: UIViewController,CBCentralManagerDelegate,CBPeripheralDele
         
         //设置代理与TableVC
         let tableRect=CGRect(x: 0, y: 225, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-225)
-        let TableVC=BlueToothDiveListTableView(frame: tableRect, style: .plain)
+        let TableVC=BlueToothDivceListTableView(frame: tableRect, style: .plain)
         TableVC.myDelegate=self
         
         self.view.addSubview(topContentView)

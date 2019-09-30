@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A55B2AF023420AF200A77FCD /* TakeConstantsStr.ts in Resources */ = {isa = PBXBuildFile; fileRef = A55B2AEF23420AF200A77FCD /* TakeConstantsStr.ts */; };
+		A55B2AF223420BFC00A77FCD /* RNDDScan.tsx in Resources */ = {isa = PBXBuildFile; fileRef = A55B2AF123420BFC00A77FCD /* RNDDScan.tsx */; };
+		A55B2AF423420C5500A77FCD /* Bluetooth.tsx in Resources */ = {isa = PBXBuildFile; fileRef = A55B2AF323420C5500A77FCD /* Bluetooth.tsx */; };
 		A5C2993D233C4D8D003F602D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2993C233C4D8D003F602D /* AppDelegate.swift */; };
 		A5C2993F233C4D8D003F602D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2993E233C4D8D003F602D /* SceneDelegate.swift */; };
 		A5C29941233C4D8E003F602D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C29940233C4D8E003F602D /* ViewController.swift */; };
@@ -16,7 +19,7 @@
 		A5C29954233C4DA0003F602D /* tryToUseBlueToothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C29953233C4DA0003F602D /* tryToUseBlueToothTests.swift */; };
 		A5C2995F233C4DA0003F602D /* tryToUseBlueToothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2995E233C4DA0003F602D /* tryToUseBlueToothUITests.swift */; };
 		A5C2996E233C50D5003F602D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C2996D233C50D5003F602D /* HealthKit.framework */; };
-		A5C29970233C6341003F602D /* BlueToothDiveListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2996F233C6341003F602D /* BlueToothDiveListTableView.swift */; };
+		A5C29970233C6341003F602D /* BlueToothDivceListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C2996F233C6341003F602D /* BlueToothDivceListTableView.swift */; };
 		A5C29972233C93B7003F602D /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C29971233C93B7003F602D /* extensions.swift */; };
 		A5C29974233CB83E003F602D /* PeripheralTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C29973233CB83E003F602D /* PeripheralTableViewDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A55B2AEF23420AF200A77FCD /* TakeConstantsStr.ts */ = {isa = PBXFileReference; lastKnownFileType = text; path = TakeConstantsStr.ts; sourceTree = "<group>"; };
+		A55B2AF123420BFC00A77FCD /* RNDDScan.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RNDDScan.tsx; sourceTree = "<group>"; };
+		A55B2AF323420C5500A77FCD /* Bluetooth.tsx */ = {isa = PBXFileReference; lastKnownFileType = text; path = Bluetooth.tsx; sourceTree = "<group>"; };
 		A5C29939233C4D8D003F602D /* tryToUseBlueTooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryToUseBlueTooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C2993C233C4D8D003F602D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5C2993E233C4D8D003F602D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +60,7 @@
 		A5C2995E233C4DA0003F602D /* tryToUseBlueToothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tryToUseBlueToothUITests.swift; sourceTree = "<group>"; };
 		A5C29960233C4DA0003F602D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C2996D233C50D5003F602D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		A5C2996F233C6341003F602D /* BlueToothDiveListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothDiveListTableView.swift; sourceTree = "<group>"; };
+		A5C2996F233C6341003F602D /* BlueToothDivceListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothDivceListTableView.swift; sourceTree = "<group>"; };
 		A5C29971233C93B7003F602D /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		A5C29973233CB83E003F602D /* PeripheralTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralTableViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,11 +120,14 @@
 				A5C29940233C4D8E003F602D /* ViewController.swift */,
 				A5C29973233CB83E003F602D /* PeripheralTableViewDelegate.swift */,
 				A5C29971233C93B7003F602D /* extensions.swift */,
-				A5C2996F233C6341003F602D /* BlueToothDiveListTableView.swift */,
+				A5C2996F233C6341003F602D /* BlueToothDivceListTableView.swift */,
 				A5C29942233C4D8E003F602D /* Main.storyboard */,
 				A5C29945233C4DA0003F602D /* Assets.xcassets */,
 				A5C29947233C4DA0003F602D /* LaunchScreen.storyboard */,
 				A5C2994A233C4DA0003F602D /* Info.plist */,
+				A55B2AF123420BFC00A77FCD /* RNDDScan.tsx */,
+				A55B2AF323420C5500A77FCD /* Bluetooth.tsx */,
+				A55B2AEF23420AF200A77FCD /* TakeConstantsStr.ts */,
 			);
 			path = tryToUseBlueTooth;
 			sourceTree = "<group>";
@@ -253,9 +262,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55B2AF223420BFC00A77FCD /* RNDDScan.tsx in Resources */,
 				A5C29949233C4DA0003F602D /* LaunchScreen.storyboard in Resources */,
+				A55B2AF423420C5500A77FCD /* Bluetooth.tsx in Resources */,
 				A5C29946233C4DA0003F602D /* Assets.xcassets in Resources */,
 				A5C29944233C4D8E003F602D /* Main.storyboard in Resources */,
+				A55B2AF023420AF200A77FCD /* TakeConstantsStr.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +296,7 @@
 				A5C29941233C4D8E003F602D /* ViewController.swift in Sources */,
 				A5C29974233CB83E003F602D /* PeripheralTableViewDelegate.swift in Sources */,
 				A5C2993D233C4D8D003F602D /* AppDelegate.swift in Sources */,
-				A5C29970233C6341003F602D /* BlueToothDiveListTableView.swift in Sources */,
+				A5C29970233C6341003F602D /* BlueToothDivceListTableView.swift in Sources */,
 				A5C2993F233C4D8D003F602D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
